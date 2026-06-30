@@ -1,3 +1,6 @@
+
+
+
 # Vision: Skills4SHub
 
 ## Problem
@@ -6,25 +9,25 @@ Skills—based on the Anthropic standard for agent capabilities—are emerging a
 
 ## Solution
 
-SKILL4S is a  web application that lets members search the catalog, access and download skills for scientific purposes. Users can see all downloads and how many times it has been downloaded along with comments from the community. SKILL4S allows to upload skills, that will store version, date and authorship. It is something like docker hub but for scientific skills.
+SKILLS4S is a  web application that lets users to search the catalog, access and download skills for scientific purposes. Users can see all downloads and how many times it has been downloaded along with comments from the community. SKILLS4S allows to upload skills, that will store version, date and authorship. It is something like docker hub but for scientific skills.
 
 
 ## Target Users
 
-- **Members**: people who search and download skills. They want to find skills related to scientific topics like ESA or NASA archives or IVOA (Virtual Observatory) platforms. Each member has a user account they sign in with.
-- **Skills Providers**: People who create and upload skills to the application (SKILL4S). They can be Members of the platform too.
+- **Public**: people who search and download skills. They want to find skills related to scientific topics like ESA or NASA archives or IVOA (Virtual Observatory) platforms. They access without any account or autentication to a main view with a search input.
+- **Skills Providers**: People who create and upload skills to the application (SKILLS4S). They must be Members of the platform.
 - **Verifiers**: They are members of the most important scientific organizations and can check and validate SKILLS uploaded by others.
 - **SKILL4S Administrator**: the person who manages the platform, the catalog and helps members. Wants a clear
-  overview of active skills. The SKILL4S Admin signs in with their own user account.
+  overview of active skills. The SKILLS4S Admin signs in with their own user account.
 
 ## Goals
 
 - Make searching and finding relevant skills easy.
-- Give members a self service way to find verified skills to download and to interact to scientific platforms.
-- Give the SKILL4S Administrators a real time view of all downloads.
+- Give users a self service way to find verified skills to download and to interact to scientific platforms.
+- Give the SKILLS4S Administrators a real time view of all downloads.
 - Keep the system small and easy to maintain.
 - Give Skills Providers to upload or create Skills. It should support different versions for the skills. A new version will be created and upload a new version or editing a existing one.
-- Make sure every action is tied to a known user, and that administrator-only screens are reachable only by administrator of SKILL4S.
+- Make sure every action from Skills providers and Verifiers is tied to a known user, and that administrator-only screens are reachable only by administrator of SKILL4S.
 
 ## Non Goals
 
