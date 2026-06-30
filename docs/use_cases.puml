@@ -1,0 +1,59 @@
+@startuml Use Cases Overview
+left to right direction
+
+actor "Member" as member
+actor "Skills Provider" as provider
+actor "Verifier" as verifier
+actor "Administrator" as admin
+
+rectangle "Skills4SHub" {
+    usecase "UC-001\nUser Authentication" as UC001
+    usecase "UC-002\nSearch Catalog" as UC002
+    usecase "UC-003\nFilter Skills by Status" as UC003
+    usecase "UC-004\nView Skill Details" as UC004
+    usecase "UC-005\nDownload Skills" as UC005
+    usecase "UC-006\nView Download History" as UC006
+    usecase "UC-007\nView Community Comments" as UC007
+    usecase "UC-008\nWrite Community Comments" as UC008
+    usecase "UC-009\nUpload Skills" as UC009
+    usecase "UC-010\nSubmit Skills for Verification" as UC010
+    usecase "UC-011\nManage Skill Versions" as UC011
+    usecase "UC-012\nVerify Skills" as UC012
+    usecase "UC-013\nAdd Verification Notes" as UC013
+    usecase "UC-014\nView Admin Dashboard" as UC014
+    usecase "UC-015\nManage Users" as UC015
+    usecase "UC-016\nManage Catalog" as UC016
+    usecase "UC-017\nAccess Admin Screens" as UC017
+    usecase "UC-018\nView Active Skills" as UC018
+    usecase "UC-019\nFilter Skills by Category" as UC019
+    usecase "UC-020\nView Skill Author" as UC020
+}
+
+member --> UC001
+member --> UC002
+member --> UC003
+member --> UC004
+member --> UC005
+member --> UC006
+member --> UC007
+member --> UC008
+member --> UC019
+member --> UC020
+
+provider --> UC001
+provider --> UC009
+provider --> UC010
+provider --> UC011
+
+verifier --> UC001
+verifier --> UC012
+verifier --> UC013
+
+admin --> UC001
+admin --> UC014
+admin --> UC015
+admin --> UC016
+admin --> UC017
+admin --> UC018
+
+@enduml
