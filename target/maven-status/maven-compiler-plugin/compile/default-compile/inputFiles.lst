@@ -1,5 +1,8 @@
 /Users/mdoctor/Documents/Projects/Personal Projects/spec/SDD/claude-code-projects/skills4shub/src/main/java/ai/sinai/aivioai/skills/hub/skills4shub/Skills4shubApplication.java
+/Users/mdoctor/Documents/Projects/Personal Projects/spec/SDD/claude-code-projects/skills4shub/src/main/java/ai/sinai/aivioai/skills/hub/skills4shub/database/dto/SkillDto.java
+/Users/mdoctor/Documents/Projects/Personal Projects/spec/SDD/claude-code-projects/skills4shub/src/main/java/ai/sinai/aivioai/skills/hub/skills4shub/database/repositories/SkillRepository.java
 /Users/mdoctor/Documents/Projects/Personal Projects/spec/SDD/claude-code-projects/skills4shub/src/main/java/ai/sinai/aivioai/skills/hub/skills4shub/views/HomeView.java
+/Users/mdoctor/Documents/Projects/Personal Projects/spec/SDD/claude-code-projects/skills4shub/src/main/java/ai/sinai/aivioai/skills/hub/skills4shub/views/SkillListView.java
 /Users/mdoctor/Documents/Projects/Personal Projects/spec/SDD/claude-code-projects/skills4shub/target/generated-sources/jooq/ai/sinai/aivioai/skills/hub/skills4shub/database/DefaultCatalog.java
 /Users/mdoctor/Documents/Projects/Personal Projects/spec/SDD/claude-code-projects/skills4shub/target/generated-sources/jooq/ai/sinai/aivioai/skills/hub/skills4shub/database/Keys.java
 /Users/mdoctor/Documents/Projects/Personal Projects/spec/SDD/claude-code-projects/skills4shub/target/generated-sources/jooq/ai/sinai/aivioai/skills/hub/skills4shub/database/Public.java

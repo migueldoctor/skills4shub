@@ -8,7 +8,7 @@ class TestSkills4shubApplication {
 	static final PostgreSQLContainer postgres;
 
     static {
-        postgres = new org.testcontainers.postgresql.PostgreSQLContainer("postgres:17-alpine");
+        postgres = new org.testcontainers.postgresql.PostgreSQLContainer("postgres:18-alpine");
         postgres.start();
         System.setProperty("spring.datasource.url", postgres.getJdbcUrl());
         System.setProperty("spring.datasource.username", postgres.getUsername());
