@@ -7,13 +7,13 @@ erDiagram
     USER ||--o{ SKILL : "uploads"
     USER ||--o{ DOWNLOAD : "makes"
     USER ||--o{ COMMENT : "writes"
+    USER ||--o{ VERIFICATION : "performs"
     SKILL ||--o{ VERSION : "has"
     VERSION ||--|| SKILL : "is version of"
     SKILL ||--o{ DOWNLOAD : "is downloaded in"
     SKILL ||--o{ COMMENT : "has"
     SKILL }o--|| USER : "requires verification by"
-    USER ||--o{ VERIFICATION : "performs"
-    VERIFICATION }o--|| SKILL : "verifies"
+    SKILL ||--o{ VERIFICATION : "is verified in"
 ```
 
 ## USER
@@ -27,7 +27,7 @@ Represents a system user with a specific role (member, verifier, or administrato
 | password    | Encrypted password       | String    | 255              | Not Null                  |
 | first_name  | User's first name        | String    | 100              | Not Null                  |
 | last_name   | User's last name         | String    | 100              | Not Null                  |
-| role        | User role                | String    | 20               | Not Null, Enum: MEMBER, VERIFIER, ADMIN |
+| role        | User role                | String    | 20               | Not Null, Values: MEMBER, VERIFIER, ADMIN |
 | created_at  | Account creation timestamp | DateTime | -                | Not Null, Default: Now    |
 | updated_at  | Last update timestamp    | DateTime  | -                | Not Null, Default: Now    |
 
@@ -42,7 +42,7 @@ Represents a skill in the catalog with metadata about its purpose and verificati
 | description    | Detailed description                  | String    | 2000             | Not Null                  |
 | author_id      | Creator user ID                       | Long      | 19               | Foreign Key, Not Null     |
 | file_path      | Path to skill markdown file           | String    | 500              | Not Null, Unique          |
-| verification_status | Verification status              | String    | 20               | Not Null, Enum: PENDING, VERIFIED, REJECTED |
+| verification_status | Verification status              | String    | 20               | Not Null, Values: PENDING, VERIFIED, REJECTED |
 | created_at     | Skill creation timestamp              | DateTime  | -                | Not Null, Default: Now    |
 | updated_at     | Last update timestamp                 | DateTime  | -                | Not Null, Default: Now    |
 
@@ -61,14 +61,16 @@ Represents a version of a skill, tracking all updates made to the skill over tim
 
 ## DOWNLOAD
 
-Represents a user downloading a skill.
+Represents a download of a skill, supporting both authenticated and anonymous users.
 
-| Attribute    | Description                    | Data Type | Length/Precision | Validation Rules          |
-|--------------|--------------------------------|-----------|------------------|---------------------------|
-| id           | Unique identifier              | Long      | 19               | Primary Key, Sequence     |
-| user_id      | Downloading user ID            | Long      | 19               | Foreign Key, Not Null     |
-| skill_id     | Downloaded skill ID            | Long      | 19               | Foreign Key, Not Null     |
-| downloaded_at| Download timestamp             | DateTime  | -                | Not Null, Default: Now    |
+| Attribute     | Description                          | Data Type | Length/Precision | Validation Rules          |
+|---------------|--------------------------------------|---------|--|------------------|---------------------------|
+| id            | Unique identifier                    | Long      | 19               | Primary Key, Sequence     |
+| user_id       | Downloading user ID (nullable for anonymous) | Long   | 19               | Foreign Key, Optional     |
+| skill_id      | Downloaded skill ID                  | Long      | 19               | Foreign Key, Not Null     |
+| downloaded_at | Download timestamp                   | DateTime  | -                | Not Null, Default: Now    |
+| ip_address    | IP address for anonymous downloads   | String    | 45               | Optional                  |
+| session_id    | Session identifier for anonymous downloads | String | 255             | Optional                  |
 
 ## COMMENT
 
@@ -91,12 +93,13 @@ Represents a verification attempt by a verifier on a skill.
 | id            | Unique identifier                    | Long      | 19               | Primary Key, Sequence     |
 | skill_id      | Skill being verified                 | Long      | 19               | Foreign Key, Not Null     |
 | verifier_id   | Verifying user ID                    | Long      | 19               | Foreign Key, Not Null     |
-| status        | Verification outcome                 | String    | 20               | Not Null, Enum: PENDING, VERIFIED, REJECTED |
+| status        | Verification outcome                 | String    | 20               | Not Null, Values: PENDING, VERIFIED, REJECTED |
 | notes         | Verifier's notes                     | String    | 1000             | Optional                  |
 | verified_at   | Verification completion timestamp    | DateTime  | -                | Optional                  |
 | created_at    | Verification request timestamp       | DateTime  | -                | Not Null, Default: Now    |
 
 **Constraints:**
+- For anonymous downloads (user_id is NULL), at least ip_address or session_id must be provided
 - A skill can have only one active verification process at a time (PENDING status)
 - Download history is immutable once recorded
 - Comments cannot be edited after creation

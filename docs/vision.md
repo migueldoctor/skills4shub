@@ -14,7 +14,7 @@ SKILLS4S is a  web application that lets users to search the catalog, access and
 
 ## Target Users
 
-- **Public**: people who search and download skills. They want to find skills related to scientific topics like ESA or NASA archives or IVOA (Virtual Observatory) platforms. They access without any account or autentication to a main view with a search input.
+- **Public**: people who search and download skills. They want to find skills related to scientific topics like ESA or NASA archives or IVOA (Virtual Observatory) platforms. They access without any account or autentication to a main view with a search input. The downloads from this users will be identified as anonymous in the system.
 - **Skills Providers**: People who create and upload skills to the application (SKILLS4S). They must be Members of the platform.
 - **Verifiers**: They are members of the most important scientific organizations and can check and validate SKILLS uploaded by others.
 - **SKILL4S Administrator**: the person who manages the platform, the catalog and helps members. Wants a clear
